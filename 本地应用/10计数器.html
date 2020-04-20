@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <div id="app">
+        <button @click="sub">
+        -
+        </button>
+        <span>{{num}}
+        </span>
+        <button @click="add">
+        +
+        </button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data:{
+                num:1
+            },
+            methods: {
+                add: function(){
+                    console.log('add')
+                    if(this.num<10){
+                        this.num+=1;
+                    }else{
+                        alert("别点啦，最大了")
+                    }
+                    
+                },
+                sub: function(){
+                    console.log('sub')
+                    if(this.num>0){
+                        this.num-=1;
+
+                    }else{
+                        alert("别点啦，最小了")
+                    }
+                },
+
+            }
+        })
+    </script>
+</body>
+</html>
