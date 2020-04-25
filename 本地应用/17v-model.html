@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <input type="button" value="设置初始值" @click="setM">
+        <input type="text" v-model="message" @keyup.enter="getM">
+        <h2>{{message}}</h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"镜像"
+            },
+            methods:{
+                setM:function(){
+                    this.message="初始值";
+                },
+                getM:function(){
+                    alert(this.message)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
