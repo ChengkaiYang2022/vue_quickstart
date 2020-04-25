@@ -18,7 +18,7 @@
                         <span class="index">{{idx+1}}
                         </span>
                         <label>{{item}}</label>
-                        <button class="destroy"></button>
+                        <input type="button" class="destroy" value="X" @click="remove(idx)"></inp>
                     </div>
                 </li>
             </ul>
@@ -38,6 +38,11 @@
             methods:{
                 add:function(){
                     this.list.push(this.inputValue);
+                },
+                remove:function(idx){
+                    console.log("删除了");
+                    console.log(idx);
+                    this.list.splice(idx,1);
                 }
             },
         })
