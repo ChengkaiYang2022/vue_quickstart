@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Get接口" class="get">
+    <input type="button" value="Post接口" class="post">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        /*
+            获取三个随机笑话
+            https://autumnfish.cn/api/joke/list?num=3
+        */
+        document.querySelector(".get").onclick = function(){
+            axios.get("https://autumnfish.cn/api/joke/list?num=3")
+            .then(function (response){
+                console.log(response);
+            })
+        }
+    </script>
+</body>
+</html>
