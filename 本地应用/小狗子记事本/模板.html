@@ -8,7 +8,7 @@
 <body>
     <section id="todoapp">
         <header>
-                <h1>小黑记事本</h1>
+                <h1>小狗子记事本</h1>
                 <input v-model="inputValue" @keyup.enter="add" autofocus="autofocus" autocomlete="off" placeholder="请输入任务" class="new-todo">
         </header>
         <section class="main">
@@ -24,6 +24,10 @@
             </ul>
         </section>
         <footer class="footer">
+            <span class="todo-count" v-if="this.list.length!=0">
+                今天做了<strong>{{this.list.length}}</strong>件事情。
+            </span>
+            <input type="button" value="清除今天事情" @click="clear">
         </footer>
         <footer class="info"></footer>
     </section>
@@ -37,12 +41,22 @@
             },
             methods:{
                 add:function(){
-                    this.list.push(this.inputValue);
+                    if(this.list.length >= 5){
+                        alert("今天事情完成了"+this.list.length+"件事情，不用做了");
+                    }else{
+                        this.list.push(this.inputValue);
+
+                    }
+                    // console.log(this.list.length);
                 },
                 remove:function(idx){
                     console.log("删除了");
                     console.log(idx);
                     this.list.splice(idx,1);
+                },
+                clear:function(){
+                    this.list = [];
+                    console.log("已经清除了");
                 }
             },
         })
