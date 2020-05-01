@@ -18,6 +18,15 @@
             axios.get("https://autumnfish.cn/api/joke/list?num=3")
             .then(function (response){
                 console.log(response);
+            },function(error){
+                console.log(error);
+            })
+        }
+        document.querySelector(".post").onclick = function(){
+            axios.post("https://autumnfish.cn/api/user/reg",
+            {username:"yangck"}
+            ).then(function (response){
+                console.log(response);
             })
         }
     </script>
